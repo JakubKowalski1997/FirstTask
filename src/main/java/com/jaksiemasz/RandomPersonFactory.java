@@ -5,7 +5,7 @@ import com.google.common.collect.ComparisonChain;
 import java.io.IOException;
 import java.util.*;
 
-public class RandomPerson {
+public class RandomPersonFactory {
 
     public Person createPerson() throws IOException {
         Person person =  new Person(randomName(), randomSurname(), pseudoRandomMail());
@@ -31,7 +31,7 @@ public class RandomPerson {
     }
 
     public void ListOfRandomPeople(int numberOfPeople) throws IOException {
-        RandomPerson randomPerson = new RandomPerson();
+        RandomPersonFactory randomPerson = new RandomPersonFactory();
 
         List<Person> personList = new ArrayList<>();
 
