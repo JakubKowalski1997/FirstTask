@@ -2,7 +2,7 @@ package com.jaksiemasz;
 
 import java.io.IOException;
 
-public class Person{
+public class Person {
     private String name;
     private String surname;
     private String mail;

@@ -30,6 +30,7 @@ public class RandomPersonFactory {
         return randomName() + randomSurname().length() + "@" + randomSurname();
     }
 
+
     public void ListOfRandomPeople(int numberOfPeople) throws IOException {
         RandomPersonFactory randomPerson = new RandomPersonFactory();
 
@@ -45,7 +46,6 @@ public class RandomPersonFactory {
             personList.get(i).show();
         }
     }
-
 }
 
 class LexicographicComparator implements Comparator<Person> {
