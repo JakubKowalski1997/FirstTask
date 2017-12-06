@@ -11,13 +11,12 @@ public class Main {
         Grzesiek.hire(new Developer("Jakub","Ko"));
        Grzesiek.assign(new Task("123", 10,0));
        Grzesiek.assign(new Task("bug", 4,1));
-       //System.out.println(Grzesiek.printListEmployee()); // nie działa jak chce :(
        System.out.println(Grzesiek.getListEmployee().get(0).getRole());
        System.out.println(Grzesiek.getListEmployee().get(1).getRole());
        System.out.println(Grzesiek.getListEmployee().get(2).getRole());
         System.out.println(Grzesiek.getListEmployee().get(0).reportWork());*/
 
-        Company comp1 = new Company(3);
+        Company comp1 = new Company(2);
 
         comp1.createCompany();
 
