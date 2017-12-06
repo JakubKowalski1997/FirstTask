@@ -40,7 +40,7 @@ public class RandomPersonFactory {
             personList.add(randomPerson.createPerson());
         }
 
-        Collections.sort(personList, new LexicographicComparator());
+        personList.sort(new LexicographicComparator());
 
         for (int i = 0; i < personList.size(); i++) {
             personList.get(i).show();

@@ -1,26 +1,26 @@
 package com.jaksiemasz;
 
-import com.google.common.collect.ComparisonChain;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Email is SUPER random \n");
+       /*TeamMenager Grzesiek = new TeamMenager("Grzesiek",  10);
+       Grzesiek.hire(new Developer("Jakub Kowalski","Team leader"));
+        Grzesiek.hire(new Developer("Jakub Brzęczyszczykiewicz","Developer"));
+        Grzesiek.hire(new Developer("Jakub","Ko"));
+       Grzesiek.assign(new Task("123", 10,0));
+       Grzesiek.assign(new Task("bug", 4,1));
+       //System.out.println(Grzesiek.printListEmployee()); // nie działa jak chce :(
+       System.out.println(Grzesiek.getListEmployee().get(0).getRole());
+       System.out.println(Grzesiek.getListEmployee().get(1).getRole());
+       System.out.println(Grzesiek.getListEmployee().get(2).getRole());
+        System.out.println(Grzesiek.getListEmployee().get(0).reportWork());*/
 
-        RandomPersonFactory randomPerson = new RandomPersonFactory();
+        Company comp1 = new Company(3);
 
-        randomPerson.ListOfRandomPeople(20);
+        comp1.createCompany();
 
-        System.out.println("Let's crash it!!!");
-
-        Person personCrash = new Person("Jakub1", "Kowalski", "cotamaniewiem");
-        personCrash.show();
     }
 
 }

@@ -3,9 +3,9 @@ package com.jaksiemasz;
 import java.io.IOException;
 
 public class Person {
-    private String name;
-    private String surname;
-    private String mail;
+    private final String name;
+    private final String surname;
+    private final String mail;
 
     public Person(String name, String surname, String mail) throws IOException {
         this.name = isWord(name);
