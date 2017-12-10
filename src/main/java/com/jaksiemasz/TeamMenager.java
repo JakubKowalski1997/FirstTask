@@ -8,17 +8,20 @@ public class TeamMenager extends AbstractEmployee implements IMenager{
     private final int size;
 
     private final List<AbstractEmployee> listEmployee;
+    private final List<TeamMenager> menagerList;
 
     public TeamMenager(String name, int size) {
         super(name, "Team menager");
         this.size = size;
         listEmployee = new ArrayList<>(this.size);
+        menagerList = new ArrayList<>(this.size);
     }
 
     public TeamMenager(String name, String role, int size) {
         super(name, role);
         this.size = size;
         listEmployee = new ArrayList<>(this.size);
+        menagerList = new ArrayList<>(this.size);
     }
 
     @Override
@@ -27,13 +30,23 @@ public class TeamMenager extends AbstractEmployee implements IMenager{
     }
 
     @Override
+    public void hire(TeamMenager menager) {
+        menagerList.add(menager);
+    }
+
+    @Override
     public void fire(AbstractEmployee employee) {
         listEmployee.remove(employee);
     }
 
     @Override
+    public void fire(TeamMenager menager) {
+        menagerList.remove(menager);
+    }
+
+    @Override
     public boolean canHire() {
-        if(listEmployee.size() <= size ){
+        if(listEmployee.size() < size ){
          return true;
         }
         else return false;
@@ -57,6 +70,10 @@ public class TeamMenager extends AbstractEmployee implements IMenager{
 
     public List<AbstractEmployee> getListEmployee() {
         return listEmployee;
+    }
+
+    public List<TeamMenager> getMenagerList() {
+        return menagerList;
     }
 
     @Override

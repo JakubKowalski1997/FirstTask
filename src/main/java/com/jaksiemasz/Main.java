@@ -16,10 +16,9 @@ public class Main {
        System.out.println(Grzesiek.getListEmployee().get(1).getRole());
        System.out.println(Grzesiek.getListEmployee().get(2).getRole());
         System.out.println(Grzesiek.getListEmployee().get(0).reportWork());*/
+        CompanyFactory newComp = new CompanyFactory();
+        newComp.getRandomCompany(4,"JakSieMaszCare");
 
-        Company comp1 = new Company(3);
-
-        comp1.createCompany();
 
     }
 
