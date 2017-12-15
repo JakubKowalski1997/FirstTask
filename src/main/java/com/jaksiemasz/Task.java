@@ -1,23 +1,31 @@
 package com.jaksiemasz;
 
-public class Task {
-    private final String stringTask;
-    private final int unitOfWorkToMakeTask;
-    private final int numberEmployee;
+import java.util.Date;
 
-    public Task(String stringTask, int unitOfWorkToMakeTask,int numberEmployee) {
-        this.stringTask = stringTask;
-        this.unitOfWorkToMakeTask = unitOfWorkToMakeTask;
-        this.numberEmployee = numberEmployee;
+public class Task {
+
+    private String specs;
+    private String comments;
+    boolean hasDeadLine;
+    private Date deadLine;
+
+    public Task(String specs, String comments) {
+        hasDeadLine = false;
+        this.specs = specs;
+        this.comments = comments;
     }
 
-
-    public int getNumberEmployee() {
-        return numberEmployee;
+    public Task(String specs, String comments, Date deadLine) {
+        hasDeadLine = true;
+        this.specs = specs;
+        this.comments = comments;
+        this.deadLine = deadLine;
     }
 
     @Override
     public String toString() {
-        return "Implementing a: " + stringTask + " it will take " + unitOfWorkToMakeTask + " unit of work.";
+        return hasDeadLine ? specs + "\n" + comments
+                : specs + "\n" + comments + "\n" + deadLine;
     }
+
 }

@@ -1,83 +1,84 @@
 package com.jaksiemasz;
 
+import com.sun.org.apache.regexp.internal.RE;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
+
 public class TeamMenager extends AbstractEmployee implements IMenager{
 
-    private final int size;
+    final private String name;
+    final private EEmployeeRole role;
+    private int employeeLimit;
 
-    private final List<AbstractEmployee> listEmployee;
-    private final List<TeamMenager> menagerList;
+    private List<IEmployee> subordinates = new ArrayList<>();
+    private List<Task> tasks = new ArrayList<>();
+    private Report workComplited = new Report();
 
-    public TeamMenager(String name, int size) {
-        super(name, "Team menager");
-        this.size = size;
-        listEmployee = new ArrayList<>(this.size);
-        menagerList = new ArrayList<>(this.size);
-    }
 
-    public TeamMenager(String name, String role, int size) {
+    public TeamMenager(String name, int employeeLimit, EEmployeeRole role) {
         super(name, role);
-        this.size = size;
-        listEmployee = new ArrayList<>(this.size);
-        menagerList = new ArrayList<>(this.size);
+        this.name = name;
+        this.employeeLimit = employeeLimit;
+        this.role = role;
     }
 
-    @Override
-    public void hire(AbstractEmployee employee) {
-        listEmployee.add(employee);
+    public void hire (IEmployee e) {
+        checkArgument(canHire()
+                ,"Manager %s is not able to hire more employees", name);
+        checkArgument(!subordinates.contains(e)
+                ,"Manager %s is not able to hire the same employee (%s) twice", name, e);
+        subordinates.add(e);
     }
 
-    @Override
-    public void hire(TeamMenager menager) {
-        menagerList.add(menager);
+    public void fire (IEmployee e) {
+        checkArgument(subordinates.contains(e), "Employee %s is not a subordinate", e);
+        subordinates.remove(e);
     }
 
-    @Override
-    public void fire(AbstractEmployee employee) {
-        listEmployee.remove(employee);
+    public void assign(Task task){
+        tasks.add(task);
     }
 
-    @Override
-    public void fire(TeamMenager menager) {
-        menagerList.remove(menager);
+    public void assign(Task task, IEmployee e){
+        checkArgument(subordinates.contains(e)
+                ,"Can't assign task %s to employee %s (employee is not a subordinate of %s)"
+                ,task, e, this);
+        e.assign(task);
     }
 
-    @Override
-    public boolean canHire() {
-        if(listEmployee.size() < size ){
-         return true;
+    public Report reportWork(){
+        Report subordinatesWork = new Report();
+        for (IEmployee e:
+                subordinates) {
+            subordinatesWork = subordinatesWork.merge(e.reportWork());
         }
-        else return false;
+        return subordinatesWork;
     }
 
-
-    @Override
-    public void assign(Task task) {
-        listEmployee.get(task.getNumberEmployee()).assign(task); // Zatrudnieni są oznaczani przez numerki trzeba by do nich po imieniu zaczac mowic XD
-        System.out.println(task.toString());
+    public boolean canHire(){
+        return (subordinates.size() < employeeLimit);
     }
 
-
-    @Override
-    public Report reportWork() {
-        for(int i = 0; i < listEmployee.size(); i++){
-            return listEmployee.get(i).reportWork();
-        }
-        return null;
-    }
-
-    public List<AbstractEmployee> getListEmployee() {
-        return listEmployee;
-    }
-
-    public List<TeamMenager> getMenagerList() {
-        return menagerList;
+    public List<IEmployee> getSubordinates() {
+        return subordinates;
     }
 
     @Override
-    public String toString() {
-        return getName() + " - "  + getRole() + " | ";
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public EEmployeeRole getRole() {
+        return role;
+    }
+
+    @Override
+    public String toString(){
+        return (name + ": " + role);
     }
 }

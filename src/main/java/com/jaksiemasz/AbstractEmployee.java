@@ -2,9 +2,9 @@ package com.jaksiemasz;
 
 public abstract class AbstractEmployee implements IEmployee{
     private final String name;
-    private final String role;
+    private final EEmployeeRole role;
 
-    public AbstractEmployee(String name, String role) {
+    public AbstractEmployee(String name, EEmployeeRole role) {
         this.name = name;
         this.role = role;
     }
@@ -15,8 +15,13 @@ public abstract class AbstractEmployee implements IEmployee{
     }
 
     @Override
-    public String getRole() {
+    public EEmployeeRole getRole() {
         return role;
+    }
+
+    @Override
+    public String toString() {
+        return (name + role);
     }
 }
 

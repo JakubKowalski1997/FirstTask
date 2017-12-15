@@ -6,10 +6,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Company comp1 = new CompanyFactory().getRandomCompany(4,"JakSieMasz.Care");
-        comp1.getCeoDirector().toString();
-
-
+        CompanyFactory company1 = new CompanyFactory();
+        company1.print(5);
 
 
     }
