@@ -1,14 +1,13 @@
 package com.jaksiemasz;
 
-import java.io.IOException;
+import com.jaksiemasz.company_struct.CompanyFactory;
 
-public class Main {
+class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         CompanyFactory company1 = new CompanyFactory();
-        company1.print(5);
-
+        company1.print(2);
 
     }
 

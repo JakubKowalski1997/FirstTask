@@ -1,5 +1,5 @@
 package com.jaksiemasz;
 
-public class MainTest {
+class MainTest {
 
 }

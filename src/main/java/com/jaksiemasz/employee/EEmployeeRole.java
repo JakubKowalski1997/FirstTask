@@ -1,4 +1,4 @@
-package com.jaksiemasz;
+package com.jaksiemasz.employee;
 
 public enum EEmployeeRole {
     CEO,
@@ -7,5 +7,4 @@ public enum EEmployeeRole {
     Tester,
     Contributor,
     TeamLeader
-
 }
