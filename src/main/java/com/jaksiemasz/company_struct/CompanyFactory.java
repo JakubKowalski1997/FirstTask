@@ -16,6 +16,7 @@ public class CompanyFactory {
         fillStructure(CEO, levels);
         System.out.println(CEO);
         printStructure(CEO, "+");
+
     }
 
     private void fillStructure(TeamMenager manager, int d) {

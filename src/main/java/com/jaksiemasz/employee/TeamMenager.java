@@ -34,6 +34,8 @@ public class TeamMenager extends AbstractEmployee implements IMenager {
 
     private TeamMenager(TeamManagerBuilder builder) {
         super(builder);
+        name = builder.name;
+        role = builder.role;
         this.employeeLimit = builder.limitOfEmployees;
         this.hireConditionFunction = builder.hireConditionFunction;
     }
@@ -111,6 +113,19 @@ public class TeamMenager extends AbstractEmployee implements IMenager {
 
         private int limitOfEmployees;
         private Predicate<IEmployee> hireConditionFunction;
+        private String name;
+        private EEmployeeRole role;
+
+
+        public TeamManagerBuilder name(String val){
+            name = val;
+            return this;
+        }
+
+        public TeamManagerBuilder role(EEmployeeRole val){
+            role = val;
+            return this;
+        }
 
         public TeamManagerBuilder setLimitOfEmployees(int limitOfEmployees) {
             this.limitOfEmployees = limitOfEmployees;

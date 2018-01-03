@@ -2,7 +2,7 @@ package com.jaksiemasz.employee;
 
 import java.util.List;
 
-interface IMenager extends IEmployee {
+public interface IMenager extends IEmployee {
 
     void hire(IEmployee e);
 

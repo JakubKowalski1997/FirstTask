@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jaksiemasz.gui.AddNewEmployeeController">
+   <children>
+      <Button fx:id="buttonClear" onAction="#handleButtonClear" layoutX="457.0" layoutY="365.0" mnemonicParsing="false" text="Clear" />
+      <Button fx:id="buttonAdd" onAction="#handleButtonClickAddNewEmp" layoutX="527.0" layoutY="365.0" mnemonicParsing="false" text="Add" />
+      <ChoiceBox fx:id="chooseMenager" layoutX="27.0" layoutY="43.0" prefWidth="150.0" />
+      <Text text="Name" layoutX="238.0" layoutY="60.0" wrappingWidth="125.0" />
+      <TextField fx:id="getNameField" onKeyReleased="#handleNoInfo" layoutX="372.0" layoutY="43.0"  />
+      <ChoiceBox fx:id="chooseRole" layoutX="372.0" layoutY="85.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="chooseSex" layoutX="372.0" layoutY="124.0" prefWidth="150.0" />
+      <TextField fx:id="getEmployeeLimitField" onKeyReleased="#handleNoInfo" layoutX="372.0" layoutY="165.0" />
+      <TextField fx:id="getEmailField" onKeyReleased="#handleNoInfo" layoutX="372.0" layoutY="211.0" />
+      <TextField fx:id="getOriginCountryField" onKeyReleased="#handleNoInfo" layoutX="372.0" layoutY="258.0" />
+      <TextField fx:id="getUniversityField" onKeyReleased="#handleNoInfo" layoutX="372.0" layoutY="304.0" />
+      <Text text="Role" layoutX="238.0" layoutY="102.0" wrappingWidth="125.0" />
+      <Text text="Sex" layoutX="238.0" layoutY="141.0" wrappingWidth="125.0" />
+      <Text text="EmployeeLimit     (menagers only)" layoutX="238.0" layoutY="182.0" wrappingWidth="125.0" />
+      <Text text="Email" layoutX="238.0" layoutY="228.0" wrappingWidth="125.0" />
+      <Text text="Country" layoutX="238.0" layoutY="275.0" wrappingWidth="125.0" />
+      <Text text="University" layoutX="238.0" layoutY="321.0" wrappingWidth="125.0" />
+   </children>
+</AnchorPane>

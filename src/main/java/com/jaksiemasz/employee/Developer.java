@@ -12,6 +12,7 @@ public class Developer extends AbstractEmployee {
 
     private String name;
     private EEmployeeRole role;
+    private Sex sex;
     private final List<Task> tasks = new ArrayList<>();
     private final DeveloperReport report = new DeveloperReport(this);
 
@@ -29,6 +30,7 @@ public class Developer extends AbstractEmployee {
         this.freeResources = builder.freeResources;
         name  = builder.name;
         role = builder.role;
+        sex = builder.sex;
     }
 
     @Override
@@ -74,6 +76,7 @@ public class Developer extends AbstractEmployee {
         private int freeResources;
         private String name;
         private EEmployeeRole role;
+        private Sex sex;
 
         public DeveloperBuilder setFreeResources(int freeResources){
             this.freeResources = freeResources;
@@ -82,6 +85,11 @@ public class Developer extends AbstractEmployee {
 
         public DeveloperBuilder name(String val){
             name = val;
+            return this;
+        }
+
+        public DeveloperBuilder sex(Sex val){
+            sex = val;
             return this;
         }
 
